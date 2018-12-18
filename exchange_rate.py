@@ -2,12 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 
 url = "http://finance.daum.net/exchanges"
-res = requests.get(url).text
+response = requests.get(url).text
 
-soup = BeautifulSoup(res,'html.parser')
-ex = soup.select("tbody tr")
+soup = BeautifulSoup(response,'html.parser')
+exchange = soup.select("table")
 
-print(ex)
-for e in ex:
-    print(e.select_one("span.num"))
+print(exchange)
+# for ex in exchange:
+#     print(e.select_one("span.num"))
 
