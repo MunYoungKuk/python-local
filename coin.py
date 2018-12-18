@@ -7,4 +7,7 @@ soup = BeautifulSoup(res,'html.parser')
 
 coins = soup.select('tbody.coin_list tr')
 
-print(coins)
+for coin in coins:
+    print(coin.select_one("td:nth-of-type(1) a strong").text)
+    print(coin.select_one("td:nth-of-type(1) strong").text)
+    print("---------------")
