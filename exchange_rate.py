@@ -1,13 +1,14 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = "http://finance.daum.net/exchanges"
+url = "http://www.kita.net/exchangeRate_info/exchangeRate_info_list.jsp"
 response = requests.get(url).text
 
 soup = BeautifulSoup(response,'html.parser')
-exchange = soup.select("table")
+exchange = soup.select("tbody tr")
 
-print(exchange)
-# for ex in exchange:
-#     print(e.select_one("span.num"))
+#print(exchange)
+for ex in exchange:
+    print(ex.select_one("th a").text.strip())
+    print(ex.select_one("td").text)
 
