@@ -9,6 +9,5 @@ exchange = soup.select("tbody tr")
 
 #print(exchange)
 for ex in exchange:
-    print(ex.select_one("th a").text.strip())
+    print(ex.select_one("th a").text.strip()) #strip() 공백 제거
     print(ex.select_one("td").text)
-
